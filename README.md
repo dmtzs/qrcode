@@ -1,5 +1,5 @@
 <p align="center">
-  <!--img width="280" src="https://github.com/dmtzs/ProyectoRaspArduino/blob/master/resources/Imgs/BoaEsmeraldaAppOriginal.png" alt="logo"-->
+  <img width="280" src="https://github.com/dmtzs/qrcode/blob/master/assets/qrIma.png" alt="logo">
   <h1 align="center" style="margin: 0 auto 0 auto;">QR Code</h1>
   <h5 align="center" style="margin: 0 auto 0 auto;">QR code generator</h5>
 </p>
