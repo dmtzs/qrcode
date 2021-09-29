@@ -1,6 +1,3 @@
-from webbrowser import get
-
-
 try:
     import os
     import sys
