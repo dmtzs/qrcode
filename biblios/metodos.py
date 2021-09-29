@@ -1,3 +1,6 @@
+from webbrowser import get
+
+
 try:
     import os
     import sys
@@ -33,28 +36,39 @@ class funciones():
                 rutaError.config(text= "Please choose a path", fg= "red", font= ("jost", 8))
 
         def cambiarLabelTrue(*args):
-            url= ytEntry.get()
+            qrtext= ytEntry.get()
             
-            if url!= "" and "https://www.youtube.com/" in url:
-                texto= "URL ingresada correctamente"
+            if qrtext != "":
+                texto= "QRcode content inserted correctly"
                 color= "green"
                 #banderas[0]= 1
-            
-            elif (("https://www.youtube.com/" not in url) and url!= ""):
-                texto= "Ingresa una URL válida"
-                color= "red"
-                #banderas[0]= 0
 
-            elif url== "":
-                texto= "Ingresa la URL del video"
+            elif qrtext== "":
+                texto= "Insert a text for the content of the qrcode"
                 color= "red"
                 #banderas[0]= 0
 
             #desbloqBoton()
             
-            return ytError.config(text= texto, fg= color, font= ("jost", 15))
+            return ytError.config(text= texto, fg= color)
 
-        # ----------------Instrucciones de la GUI principal.----------------
+        def qrcodeGenerator():
+            try:
+                content= ytEntry.get()
+                out= fileNameEntry.get()
+
+                qrImg= qrcode.make(content)
+
+                imgFile= open(f"{self.folderName}/{out}.png", "wb")
+                
+                qrImg.save(imgFile)
+                imgFile.close()
+
+                messagebox.showinfo("Sucess", "QR Code image generated")
+            except Exception:
+                messagebox.showerror("ERROR", "There was an error in the QR Code generator method")
+
+        # ----------------main GUI instructions.----------------
         self.mainWin.title(self.titleApp)
         self.mainWin.resizable(width= False, height= False)
         try:
@@ -62,8 +76,8 @@ class funciones():
             self.mainWin.iconbitmap(imaIco)
         except Exception:
             self.mainWin.iconbitmap("assets/qrIma.ico")
-        screenWidth = self.mainWin.winfo_screenwidth()# Ancho del área de visualización
-        screenHeight = self.mainWin.winfo_screenheight()# Alto del área de visualización
+        screenWidth = self.mainWin.winfo_screenwidth()# Width of the visualization area
+        screenHeight = self.mainWin.winfo_screenheight()# Height of the visualization area
         sis= platform.system()
 
         if sis== "Windows":
@@ -76,14 +90,14 @@ class funciones():
         top = (screenHeight - height) / 2
         self.mainWin.geometry(f"{int(width)}x{int(height)}+{int(left)}+{int(top)}")
 
-        # ----------------Componentes del frame----------------
-        titleLabel= tk.Label(self.mainWin, fg= "black", text= self.mainTitleApp, font= ("jost", 25))
+        # ----------------Components of the frame----------------
+        titleLabel= tk.Label(self.mainWin, fg= "#0A617C", text= self.mainTitleApp, font= ("jost", 25))
         titleLabel.place(relx= 0.5, y= 25, anchor= CENTER)
 
         fileLabel= tk.Label(self.mainWin, fg= "black", text= "Choose path to save output file:", font= ("jost", 15))
         fileLabel.place(relx= 0.5, y= 78, anchor= CENTER)
 
-        saveEntry= tk.Button(self.mainWin, fg= "white", width= 10, bg= "#794ECF", text= "Path", command= abrirRuta)
+        saveEntry= tk.Button(self.mainWin, fg= "white", width= 10, bg= "#0A617C", text= "Path", takefocus= False, command= abrirRuta)
         saveEntry.place(x= 10, y= 100)
 
         rutaError= tk.Label(self.mainWin, fg= "red", text= "Select a path", font= ("jost", 8))
@@ -101,7 +115,21 @@ class funciones():
         ytEntryText.trace_add("write", cambiarLabelTrue)
 
         # Error message
-        ytError= tk.Label(self.mainWin, text= "", fg= "red", font= ("jost", 11))
+        ytError= tk.Label(self.mainWin, text= "Insert a text for the content of the qrcode", fg= "red", font= ("jost", 11))
         ytError.place(x= 120, y= 210)
+
+        # Label output file name
+        fileNameLabel= tk.Label(self.mainWin, text= "Enter the name of the qrcode image:", font= ("jost", 15))
+        fileNameLabel.place(x= 10, y= 245)
+
+        # Entry box for the fiel name of the qrcode image
+        fileNameEntryVar= tk.StringVar()
+        fileNameEntryVar.set("output")
+        fileNameEntry= tk.Entry(self.mainWin, width= 25, textvariable= fileNameEntryVar)
+        fileNameEntry.place(x= 339, y= 252)
+
+        # Apply button
+        applyBut= tk.Button(self.mainWin, text= "Generate qrcode", fg= "white", bg= "#0A617C", width= 15, takefocus= False, command= qrcodeGenerator)
+        applyBut.place(relx= 0.5, y= 315, anchor= CENTER)
         
         self.mainWin.mainloop()
