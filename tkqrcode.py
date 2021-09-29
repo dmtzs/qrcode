@@ -4,8 +4,8 @@ except ImportError as eImp:
     print(f"The following ERROR ocurred: {eImp}")
 
 if __name__== "__main__":
-    mainTitleApp= "QR codes"
-    titleApp= "QR Code generator"
+    mainTitleApp= "QR codes"# Label title inside the frame of the application
+    titleApp= "QR Code generator"# Title inside the application bar
 
     try:
         met= metodos.funciones(titleApp, mainTitleApp)
