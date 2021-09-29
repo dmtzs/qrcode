@@ -1,2 +1,5 @@
 __pycache__
 qr.py
+dist
+build
+*.spec
