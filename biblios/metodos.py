@@ -27,6 +27,9 @@ class funciones():
         return os.path.join(basePath, relativePath)
     
     def GUI(self):
+        def repoGit():
+            webbrowser.open("https://github.com/dmtzs/qrcode")
+
         def abrirRuta():
             self.folderName= filedialog.askdirectory()
 
@@ -131,5 +134,13 @@ class funciones():
         # Apply button
         applyBut= tk.Button(self.mainWin, text= "Generate qrcode", fg= "white", bg= "#0A617C", width= 15, takefocus= False, command= qrcodeGenerator)
         applyBut.place(relx= 0.5, y= 315, anchor= CENTER)
+
+        # Label to github repository
+        labelGit= tk.Label(self.mainWin, text= "Repositorio del programa:", font= ("jost", 10))
+        labelGit.place(x= 130, y= 525)
+
+        # Button to repository
+        butGit= tk.Button(self.mainWin, width= 10, bg= "#0A617C", fg= "white", text= "Repositorio", takefocus= False, command= repoGit)
+        butGit.place(x= 290, y= 523)
         
         self.mainWin.mainloop()
