@@ -6,9 +6,16 @@
 
 <p align="center">
     <img src="https://img.shields.io/github/last-commit/dmtzs/qrcode">
-    <img src="https://img.shields.io/github/contributors/dmtzs/qrcode">
     <img src="https://img.shields.io/github/issues/dmtzs/qrcode?label=issues">
     <img src="https://img.shields.io/github/stars/dmtzs/qrcode">
+    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/dmtzs/qrcode">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/languages/code-size/dmtzs/qrcode">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/dmtzs/qrcode">
+  <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/dmtzs/qrcode?label=total%20lines%20in%20repo">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/dmtzs/qrcode">
 </p>
 
 ## The project
