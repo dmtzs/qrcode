@@ -31,3 +31,9 @@ For the creation of the exe file execute the next command in windows only:
 ```
 pyinstaller --noconfirm --onefile --windowed --icon "D:/github projects/qrcode/assets/qrIma.ico" --add-data "D:/github projects/qrcode/assets/qrIma.ico;."  "D:/github projects/qrcode/tkqrcode.py"
 ```
+# Enjoying this QR Code generator app? Consider a donation!!
+This project is an opensource and free project. That doesn't mean we don't need any money.
+
+Please consider a donation to help us cover the ongoing costs like keep improving more the code. If we receive enough donations we might even be able to free up some working hours and spend some extra time improving the platform core and adding more functionalities.
+
+To donate, please follow this [link](https://ceneka.net/dmtzs).
