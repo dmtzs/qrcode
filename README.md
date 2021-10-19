@@ -24,16 +24,13 @@ This is a project with a tkinter GUI in which you can get qr code images for add
 You can download the code or just the executable file of this app in order to run it in your personal computer for your projects.
 
 ## Documentation
-This is still on development at the wiki part
+You can go to the documentation by [clicking here](https://github.com/dmtzs/qrcode/wiki/Documentation).
 
 ## Specifications
 * The program uses python as core programming language
 * The program uses tkinter for the GUI
 * This program generates a png image for the QR Code ready to be added in whatever place you want.
-For the creation of the exe file execute the next command in windows only:
-```
-pyinstaller --noconfirm --onefile --windowed --icon "D:/github projects/qrcode/assets/qrIma.ico" --add-data "D:/github projects/qrcode/assets/qrIma.ico;."  "D:/github projects/qrcode/tkqrcode.py"
-```
+
 # Enjoying this QR Code generator app? Consider a donation!!
 This project is an opensource and free project. That doesn't mean we don't need any money.
 
