@@ -26,7 +26,10 @@ You can download the code or just the executable file of this app in order to ru
 ## Documentation
 This is still on development at the wiki part
 
-## Installation, libraries and considerations
+## Specifications
+* The program uses python as core programming language
+* The program uses tkinter for the GUI
+* This program generates a png image for the QR Code ready to be added in whatever place you want.
 For the creation of the exe file execute the next command in windows only:
 ```
 pyinstaller --noconfirm --onefile --windowed --icon "D:/github projects/qrcode/assets/qrIma.ico" --add-data "D:/github projects/qrcode/assets/qrIma.ico;."  "D:/github projects/qrcode/tkqrcode.py"
