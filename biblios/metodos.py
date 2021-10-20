@@ -24,6 +24,7 @@ class funciones():
         return os.path.join(basePath, relativePath)
     
     def GUI(self):
+        banderas= [0, 0, 0]# Path selected, Entrybox with content and Name of the qrcode result.
         def repoGit():
             webbrowser.open("https://github.com/dmtzs/qrcode")
 
@@ -32,39 +33,54 @@ class funciones():
 
             if len(self.folderName) > 1:
                 rutaError.config(text= self.folderName, fg= "green", font= ("jost", 8))
+                banderas[0]= 1
             else:
                 rutaError.config(text= "Please choose a path", fg= "red", font= ("jost", 8))
+                banderas[0]= 0
 
         def cambiarLabelTrue(*args):
-            qrtext= ytEntry.get()
+            qrtext= ytEntryText.get()
             
             if qrtext != "":
                 texto= "QRcode content inserted correctly"
                 color= "green"
-                #banderas[0]= 1
+                banderas[1]= 1
 
-            elif qrtext== "":
+            elif qrtext== "" or qrtext.isspace():
                 texto= "Insert a text for the content of the qrcode"
                 color= "red"
-                #banderas[0]= 0
-
-            #desbloqBoton()
+                banderas[1]= 0
             
             return ytError.config(text= texto, fg= color)
 
+        def validarEntry(*args):
+            contentEntry= fileNameEntryVar.get()
+
+            if contentEntry!= "":
+                banderas[2]= 1
+            elif contentEntry== "" or contentEntry.isspace():
+                banderas[2]= 0
+
         def qrcodeGenerator():
             try:
-                content= ytEntry.get()
-                out= fileNameEntry.get()
+                if banderas[0]== 0:
+                    messagebox.showerror("ERROR", "Please select a path to generate the output qr code")
+                elif banderas[1]== 0:
+                    messagebox.showerror("ERROR", "Please write something in order to generate a qr code")
+                elif banderas[2]== 0:
+                    messagebox.showerror("ERROR", "Please write a name for the qrcode image generated")
+                else:
+                    content= fileNameEntryVar.get()
+                    out= fileNameEntry.get()
 
-                qrImg= qrcode.make(content)
+                    qrImg= qrcode.make(content)
 
-                imgFile= open(f"{self.folderName}/{out}.png", "wb")
-                
-                qrImg.save(imgFile)
-                imgFile.close()
+                    imgFile= open(f"{self.folderName}/{out}.png", "wb")
+                    
+                    qrImg.save(imgFile)
+                    imgFile.close()
 
-                messagebox.showinfo("Sucess", "QR Code image generated")
+                    messagebox.showinfo("Sucess", "QR Code image generated")
             except Exception:
                 messagebox.showerror("ERROR", "There was an error in the QR Code generator method")
 
@@ -124,9 +140,10 @@ class funciones():
 
         # Entry box for the fiel name of the qrcode image
         fileNameEntryVar= tk.StringVar()
-        fileNameEntryVar.set("output")
         fileNameEntry= tk.Entry(self.mainWin, width= 25, textvariable= fileNameEntryVar)
         fileNameEntry.place(x= 339, y= 252)
+        fileNameEntryVar.trace_add("write", validarEntry)
+        fileNameEntryVar.set("output")
 
         # Apply button
         applyBut= tk.Button(self.mainWin, text= "Generate qrcode", fg= "white", bg= "#0A617C", width= 15, takefocus= False, command= qrcodeGenerator)
