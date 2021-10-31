@@ -70,7 +70,7 @@ class funciones():
                 elif banderas[2]== 0:
                     messagebox.showerror("ERROR", "Please write a name for the qrcode image generated")
                 else:
-                    content= fileNameEntryVar.get()
+                    content= ytEntryText.get()
                     out= fileNameEntry.get()
 
                     qrImg= qrcode.make(content)
@@ -138,7 +138,7 @@ class funciones():
         fileNameLabel= tk.Label(self.mainWin, text= "Enter the name of the qrcode image:", font= ("jost", 15))
         fileNameLabel.place(x= 10, y= 245)
 
-        # Entry box for the fiel name of the qrcode image
+        # Entry box for the file name of the qrcode image
         fileNameEntryVar= tk.StringVar()
         fileNameEntry= tk.Entry(self.mainWin, width= 25, textvariable= fileNameEntryVar)
         fileNameEntry.place(x= 339, y= 252)
