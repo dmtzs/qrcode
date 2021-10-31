@@ -5,6 +5,7 @@ try:
     import qrcode
     import webbrowser
     import tkinter as tk
+    from PIL import Image, ImageTk
     from tkinter.constants import CENTER
     from tkinter import filedialog, messagebox
 except ImportError as eImp:
@@ -148,6 +149,19 @@ class funciones():
         # Apply button
         applyBut= tk.Button(self.mainWin, text= "Generate qrcode", fg= "white", bg= "#0A617C", width= 15, takefocus= False, command= qrcodeGenerator)
         applyBut.place(relx= 0.5, y= 315, anchor= CENTER)
+
+        # Thumbnail
+        try:
+            Ima= Image.open("./assets/qrIma.png")
+        except:
+            filepathpng= self.resource_path("qrIma.png")
+            Ima= Image.open(filepathpng)
+        Ima= Ima.resize((190, 190), Image.ANTIALIAS)# height, width
+        renderIma= ImageTk.PhotoImage(Ima)
+        Ima.close()
+        # Label for showing the thumbnail
+        ImaLabel= tk.Label(self.mainWin, image= renderIma)
+        ImaLabel.place(relx= 0.5, y= 425, anchor= CENTER)
 
         # Label to github repository
         labelGit= tk.Label(self.mainWin, text= "Repositorio del programa:", font= ("jost", 10))
