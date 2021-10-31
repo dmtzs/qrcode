@@ -1,5 +1,5 @@
 try:
-    from biblios import metodos
+    from biblios import *
 except ImportError as eImp:
     print(f"The following ERROR ocurred: {eImp}")
 
