@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/github/languages/code-size/dmtzs/qrcode">
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/dmtzs/qrcode">
   <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/dmtzs/qrcode?label=total%20lines%20in%20repo">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/dmtzs/qrcode">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/dmtzs/qrcode?logo=python">
 </p>
 
 ## The project
