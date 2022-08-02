@@ -16,4 +16,3 @@ if __name__== "__main__":
         print("Was pressed Ctrl + C")
     finally:
         print("Ending program")
-

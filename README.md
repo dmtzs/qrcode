@@ -9,6 +9,7 @@
     <img src="https://img.shields.io/github/issues/dmtzs/qrcode?label=issues">
     <img src="https://img.shields.io/github/stars/dmtzs/qrcode">
     <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/dmtzs/qrcode">
+    <img alt="Pylint" src="https://github.com/dmtzs/qrcode/actions/workflows/pylint.yml/badge.svg?logo=github">
 </p>
 
 <p align="center">
