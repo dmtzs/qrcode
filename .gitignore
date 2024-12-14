@@ -3,3 +3,4 @@ qr.py
 dist
 build
 *.spec
+venv/
