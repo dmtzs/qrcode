@@ -2,6 +2,7 @@ try:
     from biblios import metodos
 except ImportError as err_imp:
     print(f"The following ERROR ocurred: {err_imp}")
+    exit(1)  # Exit the program if the import fails
 
 if __name__ == "__main__":
     MAIN_TITLE_APP = "QR codes"  # Label title inside the frame of the application
