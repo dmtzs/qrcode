@@ -1,5 +1,5 @@
-import typer
+from typer import Typer
 
-app = typer.Typer()
+app = Typer()
 
 from app import commands

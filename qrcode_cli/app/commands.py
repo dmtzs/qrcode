@@ -6,7 +6,7 @@ from typer import Option
 @app.command()
 def wifiqr(
     ssid: str = Option(..., help="The SSID of the network."),
-    password: str = Option(..., help="The password of the network."),
+    password: str = Option(..., prompt=True, confirmation_prompt=True, hide_input=True, help="The password of the network."),
     encryption: str = Option("WPA", help="The encryption type of the network."),
     hidden: bool = Option(False, help="Whether the network is hidden."),
     ascii: bool = Option(False, help="Print the QR code as ASCII in terminal, otherwise an image will be saved."),
@@ -31,4 +31,9 @@ def wifiqr(
     else:
         qr.make_image(fill_color="black", back_color="white").save("wifi.png")
 
-# comando: python main.py wifiqr --help
+@app.command()
+def echo(message: str) -> None:
+    """
+    Echo a message.
+    """
+    print(message)
